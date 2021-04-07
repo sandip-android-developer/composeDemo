@@ -11,6 +11,7 @@ import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
             ComposeDemoTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    setLayoutUI()
+                    SetLayoutUI()
                 }
             }
         }
@@ -35,8 +36,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun setLayoutUI() {
-    Column(modifier = Modifier.padding(10.dp)) {
+fun SetLayoutUI() {
+    Column(
+        modifier = Modifier.padding(10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Image(
             painter = painterResource(R.drawable.header), contentDescription = null,
             modifier = Modifier
@@ -50,8 +54,9 @@ fun setLayoutUI() {
             text = "A day wandering through the sandhills in Shark Fin Cove, and a few of the sights I saw",
             style = typography.h6,
             maxLines = 2,
-            overflow = TextOverflow.Ellipsis
-        )
+            overflow = TextOverflow.Ellipsis,
+
+            )
         Text(
             "Davenport, California",
             style = typography.body2
@@ -68,6 +73,6 @@ fun setLayoutUI() {
 @Composable
 fun DefaultPreview() {
     ComposeDemoTheme {
-        setLayoutUI()
+        SetLayoutUI()
     }
 }
